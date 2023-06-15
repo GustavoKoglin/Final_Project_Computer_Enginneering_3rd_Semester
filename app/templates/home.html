@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+        <div>
+
+            <img src="../static/imgs/contech.jpg" alt="Contech" style="
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: top;                
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            ">
+
+
+        </div>
+        
+       
+       <div id="social">
+            <h3>Logar com Redes Sociais</h3>
+            <div class="icon-box">
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-google"></i>
+                <i class="fab fa-linkedin"></i>
+            </div>
+        </div>
+            
+        <div id="formularioHome">
+            <h2 id="emaillogin">Logar com Email</h2>
+            <form>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+    
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required><br>
+    
+                <button type="submit">Logar</button>
+                <button onclick="window.location.href = '/cadastro'">Cadastrar</button>
+            </form>
+    
+            
+        </div>
+        
+            <footer>
+                <p>Faculdade de Tecnologia de Sinop - FASTECH - Estr. Claudete, 442A - Jardim Curitiba, Sinop - MT, 78550-810.</p>
+                <p>&copy; 2023. Todos os direitos reservados.</p>
+            </footer>
+
+        
+
+{% endblock %}

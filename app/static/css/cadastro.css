@@ -1,0 +1,187 @@
+ /* Página de Cadastro */
+
+     /* Define a fonte e a família da fonte para o corpo do documento */
+     body {
+      font-family: Arial, sans-serif;
+      margin-left: 45%;
+      margin-right: 5%;
+  }
+
+  /* Centraliza o cabeçalho do documento e define o estilo */
+  body h1 {
+      text-align: center;
+      margin-top: 10%;
+      margin-bottom: 10px;
+      background-color: orange;
+      border-radius: 10px;
+  }
+
+  /* Define a estrutura do container principal */
+  .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+  }
+
+  /* Estiliza o título do formulário */
+  form h2 {
+      text-align: center;
+      background-color: #d1cece;
+      border-radius: 10px;
+  }
+
+  /* Estiliza o formulário */
+  #formularioCadastro {
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      flex-direction: column;
+      background-color: #d3d3d3;
+      border: 3px solid #000;
+  }
+
+  /* Estiliza o título de login do formulário */
+  #formularioCadastro h2#emaillogin {
+      font-size: 20px;
+      background-color: orange;
+      padding: 10px;
+      margin-bottom: 20px;
+      color: #000;
+  }
+
+  /* Estiliza o formulário em si */
+  form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+  }
+
+  /* Estiliza as etiquetas dos campos do formulário */
+  form label {
+      margin-bottom: 10px;
+  }
+
+  /* Estiliza os campos de entrada do formulário */
+  form input[type="email"],
+  form input[type="password"],
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="date"],
+  form textarea {
+      padding: 15px;
+      border-radius: 10px;
+      width: 100%;
+  }
+
+  /* Estiliza as caixas de seleção do formulário */
+  form input[type="checkbox"] {
+      transform: scale(1.0);
+      margin-right: 5px;
+  }
+
+  .input-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+  } 
+
+  /* Estiliza os botões de envio e redefinição do formulário */
+  form button[type="submit"],
+  form button[type="reset"] {
+      padding: 10px 20px;
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      flex: 1;
+      margin: 0 5px;
+  }
+
+  /* Estiliza os botões de envio e redefinição do formulário no hover */
+      form button[type="submit"]:hover,
+      form button[type="reset"]:hover {
+      background-color: rgb(255, 170, 0);
+  }
+
+  /* Alinha o formulário horizontalmente e adiciona margem superior */
+  #formularioCadastro form {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+  }
+
+  /* Estiliza a div Dados de Acesso ao Portal */
+  #dados-acesso {
+      margin-top: 30px;
+  }
+
+
+  /* Estiliza as etiquetas dos campos */
+  form label {
+      margin-bottom: 5px;
+      font-weight: bold;
+  }
+
+  /* Estiliza os campos de entrada de texto, email e senha */
+  form input[type="email"],
+  form input[type="password"],
+  form input[type="text"],
+  form select {
+      padding: 10px;
+      border-radius: 10px;
+      width: 100%;
+  }
+
+  /* Estiliza o contêiner que agrupa os campos de entrada e as etiquetas */
+  .input-container, .search-button {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+  }
+
+  /* Estiliza as etiquetas dentro do contêiner de entrada */
+  .input-container label {
+      margin-right: 10px;
+      padding: 5px;
+  }
+
+  /* Estiliza o contêiner que agrupa os botões de envio e redefinição */
+  form .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+  }
+
+  /* Estiliza os botões de envio e redefinição dentro do contêiner */
+  form button[type="submit"],
+  form button[type="reset"],
+  form button[type="button"] {
+      flex: 1;
+      padding: 10px 20px;
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+
+  /* Estiliza os botões de envio e redefinição no hover dentro do contêiner */
+  form button[type="submit"]:hover,
+  form button[type="reset"]:hover,
+  form button[type="button"]:hover {
+      background-color: rgb(255, 170, 0);
+  }
+
+  .input-container {
+      display: flex;
+      align-items: center;
+  }
+  
+  .search-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+  }
