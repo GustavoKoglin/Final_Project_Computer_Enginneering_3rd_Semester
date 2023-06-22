@@ -1,162 +1,190 @@
-{% extends 'main.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro</title>
+        <link rel="stylesheet" type="text/css" href="../static/css/cadastro.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+    </head>
+    <body>
+        <form onsubmit="return validarFormulario()">
+            <h2>Dados Pessoais</h2>
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" required><br>
 
-    
-{% block content %}
-        
-    <h1>Formulário de Cadastro</h1>
+            <label for="dataNascimento">Data de Nascimento:</label>
+            <input type="date" id="dataNascimento" name="dataNascimento" required><br>
 
-    <form onsubmit="return validarFormulario()">
-        <h2>Dados Pessoais</h2>
-        <label for="nome">Nome Completo:</label>
-        <input type="text" id="nome" name="nome" required><br>
+            <label for="instituicao">Instituição de Ensino:</label>
+            <input type="text" id="instituicao" name="instituicao" required><br>
 
-        <label for="dataNascimento">Data de Nascimento:</label>
-        <input type="date" id="dataNascimento" name="dataNascimento" required><br>
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso" name="curso" required><br>
 
-        <label for="instituicao">Instituição de Ensino:</label>
-        <input type="text" id="instituicao" name="instituicao" required><br>
+            <h2>Contato</h2>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="seunome@dominio.com" required><br>
 
-        <label for="curso">Curso:</label>
-        <input type="text" id="curso" name="curso" required><br>
+            <label for="confirmarEmail">Confirmar Email:</label>
+            <input type="email" id="confirmarEmail" name="confirmarEmail" placeholder="seunome@dominio.com" required><br>
 
-        <h2>Contato</h2>
-        <label for="emailLogin">Email:</label>
-        <input type="email" id="email" name="email" placeholder="seunome@dominio.com" required><br>
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" placeholder="(**) *.****-****" required><br>
+                        
+            <label for="confirmar_telefone">Confirmar Telefone:</label>
+            <input type="text" id="confirmar-telefone" name="confirmar-telefone" placeholder="(**) *.****-****" required>
 
-        <label for="confirmarEmail">Confirmar Email:</label>
-        <input type="email" id="confirmarEmail" name="confirmarEmail" placeholder="seunome@dominio.com" required><br>
-
-        <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" name="telefone" placeholder="(**) *.****-****" required><br>
-                    
-        <label for="confirmar_telefone">Confirmar Telefone:</label>
-        <input type="text" id="confirmar-telefone" name="confirmar-telefone" placeholder="(**) *.****-****"  required>
-
-        <br>
-
-        <div class="input-container">
-            <input type="checkbox" id="whatsappSend" name="whatsapp">
-            <label for="whatsappSend">Aceito receber informações e obter contato via WhatsApp.</label>
-        </div>
-        
-        <div class="input-container">
-            <input type="checkbox" id="emailSend" name="email">
-            <label for="emailSend">Aceito receber informações e obter contato via email.</label>
-        </div>
-
-        <h2>Endereço</h2> 
-
-        <div>
-            <label for="cep">CEP:</label>
-            <input type="text" id="cep" name="cep" placeholder="**.***-***">
-            <button class="search-button input-container" type="button" onclick="buscarEndereco()">Buscar</button>
-
-            <script>
-            function buscarEndereco() {
-                var cep = document.getElementById('cep').value;
-                var url = 'https://viacep.com.br/ws/' + cep + '/json/';
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                    document.getElementById('logradouro').value = data.logradouro;
-                    document.getElementById('bairro').value = data.bairro;
-                    document.getElementById('cidade').value = data.localidade;
-                    document.getElementById('estado').value = data.uf;
-                })
-                    .catch(error => {
-                    console.log(error);
-                    });
-                }
-            </script>
             <br>
-            
-            <label for="logradouro">Logradouro:</label>
-            <input type="text" id="logradouro" name="logradouro" readonly>
-            <br>
-            
-            <label for="numero">Número:</label>
-            <input type="number" id="numero" name="numero">
-            <br>
-            
-            <label for="complemento">Complemento:</label>
-            <input type="text" id="complemento" name="complemento">
-            <br>
-            
-            <label for="bairro">Bairro:</label>
-            <input type="text" id="bairro" name="bairro" readonly>
-            <br>
-            
-            <label for="cidade">Cidade:</label>
-            <input type="text" id="cidade" name="cidade" readonly>
-            <br>
-            
-            <label for="estado">Estado:</label>
-            <input type="text" id="estado" name="estado" readonly>
-        </div>
 
-        
-        <h2 id="dados-acesso">Dados de Acesso ao Portal:</h2>
-        
-        <div class="input-container">
-            <label for="same-email-checkbox">
-                <input type="checkbox" id="same-email-checkbox" />
-                O email de login é o mesmo que o email pessoal.
-            </label>
-        </div>
+            <div class="input-container">
+                <input type="checkbox" id="whatsappSend" name="whatsapp">
+                <label for="whatsappSend">Aceito receber informações e obter contato via WhatsApp.</label>
+            </div>
             
-        <div id="email-fields" class="input-container">
-            <label for="emailPortal">Email:</label>
-            <input type="email" id="email" placeholder="seunome@dominio.com" required/>
+            <div class="input-container">
+                <input type="checkbox" id="emailSend" name="email">
+                <label for="emailSend">Aceito receber informações e obter contato via email.</label>
+            </div>
+
+            <h2>Endereço</h2> 
+
+            <div>
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" placeholder="**.***-***">
+                <button class="search-button input-container" type="button" onclick="buscarEndereco()">Buscar</button>
+                <br>
+                
+                <label for="logradouro">Logradouro:</label>
+                <input type="text" id="logradouro" name="logradouro" readonly>
+                <br>
+                
+                <label for="numero">Número:</label>
+                <input type="text" id="numero" name="numero">
+                <br>
+                
+                <label for="complemento">Complemento:</label>
+                <input type="text" id="complemento" name="complemento">
+                <br>
+                
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" readonly>
+                <br>
+                
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" readonly>
+                <br>
+                
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" readonly>
+            </div>
+
+            <h2 id="dados-acesso">Dados de Acesso ao Portal:</h2>
             
-            <label for="confirm-email">Confirmar Email:</label>
-            <input type="email" id="confirm-email" placeholder="seunome@dominio.com" required/>
-        </div>
-            
-        <label for="senhaPortal">Senha:</label>
-        <input type="password" id="senha" name="senha" required><br>
+            <div class="input-container">
+                <label for="same-email-checkbox">
+                    <input type="checkbox" id="same-email-checkbox" onchange="toggleEmailFields()" />
+                    O email de login é o mesmo que o email pessoal.
+                </label>
+            </div>
+                
+            <div id="email-fields" class="input-container">
+                <label for="emailPortal">Email:</label>
+                <input type="email" id="emailPortal" name="emailPortal" placeholder="seunome@dominio.com" required>
+                
+                <label for="confirm-email">Confirmar Email:</label>
+                <input type="email" id="confirm-email" name="confirmarEmailPortal" placeholder="seunome@dominio.com" required>
+            </div>
+                
+            <label for="senhaPortal">Senha:</label>
+            <input type="password" id="senhaPortal" name="senhaPortal" required><br>
 
-        <label for="confirmarSenhaPortal">Confirmar Senha:</label>
-        <input type="password" id="confirmarSenha" name="confirmarSenha" required><br>
+            <label for="confirmarSenhaPortal">Confirmar Senha:</label>
+            <input type="password" id="confirmarSenhaPortal" name="confirmarSenhaPortal" required><br>
 
-        <p>
-            <input type="checkbox" id="termos" name="termos" required>
-            <label for="termos">Li e aceito os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a></label>
-        </p>
+            <p>
+                <input type="checkbox" id="termos" name="termos" required>
+                <label for="termos">Li e aceito os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a></label>
+            </p>
 
-        <div class="button-container">
-
-            <button type="reset">Limpar</button>
-            <button type="submit" value="Cadastrar">Cadastrar</button>
-
-        </div>
-    
-    </form>
+            <div class="button-container">
+                <button type="reset">Limpar</button>
+                <button type="submit" value="Cadastrar">Cadastrar</button>
+            </div>
+        </form>
 
         <script>
-        function toggleEmailFields() {
-            var emailFields = document.getElementById("emailFields");
-            var mesmoEmailCheckbox = document.getElementById("mesmoEmail");
+            $(document).ready(function() {
+                $('#telefone').inputmask({
+                    mask: '(**) *.****-****',
+                    placeholder: '(**) ****-****'
+                });
 
-            if (mesmoEmailCheckbox.checked) {
-            emailFields.style.display = "none";
-            } else {
-            emailFields.style.display = "block";
+                $('#confirmar-telefone').inputmask({
+                    mask: '(**) *.****-****',
+                    placeholder: '(**) *.****-****'
+                });
+
+                $('#cep').inputmask({
+                    mask: '**.***-***',
+                    placeholder: '**.***-***'
+                });
+            });
+
+            function buscarEndereco() {
+                const cepInput = document.getElementById("cep");
+                const cepValue = cepInput.value.replace(/\D/g, '');
+
+                if (cepValue.length === 8) {
+                    fetch(`https://viacep.com.br/ws/${cepValue}/json/`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (!data.erro) {
+                                document.getElementById("logradouro").value = data.logradouro;
+                                document.getElementById("bairro").value = data.bairro;
+                                document.getElementById("cidade").value = data.localidade;
+                                document.getElementById("estado").value = data.uf;
+                            } else {
+                                alert("CEP não encontrado!");
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            alert("Erro ao buscar o CEP. Por favor, tente novamente.");
+                        });
+                }
             }
-        }
 
-        function validarFormulario() {
-            var termosCheckbox = document.getElementById("termos");
+            function toggleEmailFields() {
+                const emailFields = document.getElementById("email-fields");
+                const sameEmailCheckbox = document.getElementById("same-email-checkbox");
 
-            if (!termosCheckbox.checked) {
-            alert("Necessário confirmar a leitura dos termos de uso e política de privacidade.");
-            return false;
+                if (sameEmailCheckbox.checked) {
+                    emailFields.style.display = "none";
+                } else {
+                    emailFields.style.display = "block";
+                }
             }
 
-            return true;
-            }
-        </script>    
-    
-{% endblock %}
+            function validarFormulario() {
+                const email = document.getElementById("email").value;
+                const confirmarEmail = document.getElementById("confirmarEmail").value;
+                const telefone = document.getElementById("telefone").value;
+                const confirmarTelefone = document.getElementById("confirmar-telefone").value;
 
-        
-        
+                if (email !== confirmarEmail) {
+                    alert("Os campos de email não coincidem.");
+                    return false;
+                }
+
+                if (telefone !== confirmarTelefone) {
+                    alert("Os campos de telefone não coincidem.");
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+    </body>
+</html>
