@@ -31,7 +31,7 @@
             <input type="email" id="confirmarEmail" name="confirmarEmail" placeholder="seunome@dominio.com" required><br>
 
             <label for="telefone">Telefone:</label>
-            <input type="text" id="telefone" name="telefone" placeholder="(**) *.****-****" required><br>
+            <input type="text" id="telefone" name="telefone" placeholder="(**) *.****-****"  required><br>
                         
             <label for="confirmar_telefone">Confirmar Telefone:</label>
             <input type="text" id="confirmar-telefone" name="confirmar-telefone" placeholder="(**) *.****-****" required>
@@ -52,7 +52,7 @@
 
             <div>
                 <label for="cep">CEP:</label>
-                <input type="text" id="cep" name="cep" placeholder="**.***-***">
+                <input type="text" id="cep" name="cep"  placeholder="**.***-***">
                 <button class="search-button input-container" type="button" onclick="buscarEndereco()">Buscar</button>
                 <br>
                 
@@ -118,7 +118,7 @@
             $(document).ready(function() {
                 $('#telefone').inputmask({
                     mask: '(**) *.****-****',
-                    placeholder: '(**) ****-****'
+                    placeholder: '(**) *.****-****'
                 });
 
                 $('#confirmar-telefone').inputmask({
