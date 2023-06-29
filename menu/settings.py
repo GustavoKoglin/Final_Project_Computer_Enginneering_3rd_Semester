@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'menu.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'menu',
-        'HOST': 'localhost',
+        'NAME': '',
+        'HOST': '',
         'USER': 'root',
-        'PASSWORD': 'God2023!',
-        'PORT': '3306',
+        'PASSWORD': '',
+        'PORT': '',
         'OPTIONS': {
             'init_command':'SET default_storage_engine=InnoDB' 
         }

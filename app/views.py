@@ -10,8 +10,12 @@ def cadastro(request):
         # Lógica para processar o formulário de cadastro enviado
 
         # Exemplo de obtenção dos dados do formulário
-        nome = request.POST.get('#')
-        email = request.POST.get('#')
+        nome = request.POST.get('cadastro')
+        email = request.POST.get('cadastro')
+        emailportal = request.POST. get('cadastro')
+        confirmarEmailPortal = request.POST.get('cadastro')
+        senhaPortal = request.POST.get('cadastro')
+
         # ... obter outros dados do formulário
 
         # Lógica para salvar os dados do cadastro no banco de dados ou em outro lugar
